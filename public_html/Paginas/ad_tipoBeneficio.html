@@ -1,0 +1,207 @@
+<section class="page-header alternative-header">
+    <ol class="breadcrumb">
+        <li>Administrador</li>
+        <li>Beneficios</li>
+    </ol>
+    <div class="page-header_title">
+        <h1>
+            Tipo de Beneficios
+            <span class="page-header_subtitle"></span>
+        </h1>
+    </div>
+</section>
+
+<section class="page-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="panel-table-inner-offset" id="dvData">
+                        <section class="container"><!--Boton-->
+                            <script type="text/javascript">//Script Boton 
+                                $("#btnExport").click(function (e) {
+                                    window.open('data:application/vnd.ms-excel,' + encodeURIComponent($('#dvData').html()));
+                                    e.preventDefault();
+                                });
+
+                            </script>
+                            <button type="button" class="btn btn-default-bright btn-floating-action btn-sm alert" id="btnExport" title="Exportar a Excel" ><i class="material-icons">get_app</i></button>
+                            <a href="index_administrador.html#Paginas/ad_nuevoTipAuxilio.html"><button class="btn btn-default-bright btn-floating-action btn-sm alert" title="nuevo"><i class="material-icons">insert_drive_file</i></button></a>
+                        </section>
+                               <table id="tableDataTables1" class="table" data-row-select="true">
+                            <thead>
+                                <tr>
+                                    <th class="text-left">Codigo Beneficio</th>
+                                    <th class="text-left">Nombres</th>
+                                    <th class="text-left">Tipo</th>
+                                    <th class="text-left">Estado</th>
+                                    <th class="text-left">Detalle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="text-left">
+                                    <td>4021</td>
+                                    <td>AUXILIO EDUCATIVO HIJOS</td>
+                                    <td>AUXILIO</td>
+                                    <td>ACTIVO</td>
+                                    <td><a href="index_administrador.html#Paginas/ad_detalleAuxilio.html">
+                                            <i class="material-icons">visibility</i></a>
+                                    </td>
+                                </tr>
+                                <tr class="text-left">
+                                    <td>5001</td>
+                                    <td>MEDICINA GENRAL</td>
+                                    <td>SERVICIO MEDICO</td>
+                                    <td>ACTIVO</td>
+                                    <td><a href="index_administrador.html#Paginas/ad_detalleServicioMedico.html">
+                                            <i class="material-icons">visibility</i></a>
+                                    </td>
+                                </tr>
+                                <tr class="text-left">
+                                    <td>4022</td>
+                                    <td>AUXILIO EDUCATIVO EMPLEADO</td>
+                                    <td>AUXILIO</td>
+                                    <td>ACTIVO</td>
+                                    <td><a href="index_administrador.html#Paginas/ad_detalleAuxilio.html">
+                                            <i class="material-icons">visibility</i></a>
+                                    </td>
+                                </tr>
+                                <tr class="text-left">
+                                    <td>4023</td>
+                                    <td>SUBSIDIO PRIMARIA</td>
+                                    <td>AUXILIO</td>
+                                    <td>ACTIVO</td>
+                                    <td><a href="index_administrador.html#Paginas/ad_detalleAuxilio.html">
+                                            <i class="material-icons">visibility</i></a>
+                                    </td>
+                                </tr>
+                                <tr class="text-left">
+                                    <td>5002</td>
+                                    <td>RADIOLOGIA</td>
+                                    <td>SERVICIO MEDICO</td>
+                                    <td>ACTIVO</td>
+                                    <td><a href="index_administrador.html#Paginas/ad_detalleServicioMedico.html">
+                                            <i class="material-icons">visibility</i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /#page-content -->
+
+<script type="text/javascript">
+    /**
+     * PUT BELOW HERE
+     * ALL PAGE LEVEL RELATED SCRIPTS
+     */
+
+
+
+    /**
+     * 1. pageLoadScripts
+     *
+     * Scripts array to load on pageload event
+     *
+     * Example:
+     *	var pageLoadScripts = [
+     *		"js/bemat-demo-script1.min.js",
+     *		"js/bemat-demo-script2.min.js"
+     *  ]
+     *
+     */
+    var pageLoadScripts = [
+    ]
+
+    var pageLoadCSS = [
+    ]
+
+
+    /**
+     * 2. pageRequiredComponents
+     *
+     * Components that require this page. By default all components are loaded,
+     * but with this array, you can force the reinitialization of any component.
+     * 
+     * Example:
+     *	var pageRequiredComponents = [
+     *		"Panel",
+     *		"Checkbox",
+     *		"Select",
+     *		"Dropdown",
+     *		"Tooltip",
+     *		"Modals",
+     *		"FloatingLabels",
+     *		"Scrollbar",
+     *		"MaterialRipple",
+     *		"Snackbar",
+     *		"Toast",
+     *		"Subheader",
+     *		"SimplePieCharts",
+     *		"LinearProgress",
+     *		"CircularProgress",
+     *		"SpeedDial"
+     *	]
+     */
+    var pageRequiredComponents = [
+    ]
+
+
+    /**
+     * 3. pageRequiredFeatures
+     */
+    var pageRequiredFeatures = [
+        "prettyPrint",
+    ]
+
+
+
+    /**
+     * 4. doneScriptsLoad() 
+     *
+     * This function gets called when the "pageLoadScripts" 
+     * and "pageRequiredComponents" arrays above are fully loaded
+     */
+
+    // Set page variables globally
+    var clipboard;
+
+    var doneScriptsLoad = function () {
+        /**
+         * DataTables
+         */
+        $("#tableDataTables1").dataTable();
+        $("select").selectpicker({
+            dropupAuto: false,
+            size: 5
+        });
+
+
+        clipboard = new Clipboard('[data-copycode="true"]', {
+            target: function (trigger) {
+                return trigger.parentNode.parentNode.getElementsByTagName("pre")[0];
+            }
+        });
+
+        clipboard.on('success', function (e) {
+            $.toasts("add", {
+                msg: "Copied!",
+            });
+            e.clearSelection();
+        });
+    } // END: doneScriptsLoad();
+
+
+    /**
+     * 4. pageDestroy()
+     *
+     * Destroy all generated instances
+     */
+    var pageDestroy = function () {
+        clipboard.destroy();
+        clipboard = void 0;
+    }
+</script>
